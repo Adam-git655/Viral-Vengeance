@@ -1,0 +1,193 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm7l75brty2a0"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/skill_tree.gd" id="1_bqnur"]
+[ext_resource type="PackedScene" uid="uid://b60a0vo5c8tfl" path="res://Scenes and Scripts/skill_button.tscn" id="1_s82vt"]
+[ext_resource type="FontFile" uid="uid://dj7s5o43hyxuw" path="res://GameAssets/Fonts/Contagion-EaXDg.ttf" id="3_kswra"]
+[ext_resource type="Texture2D" uid="uid://t43b1fe61poq" path="res://GameAssets/Assets/Infection rate boost.png" id="3_l6vs2"]
+[ext_resource type="Texture2D" uid="uid://bin0trrue8qwo" path="res://GameAssets/Assets/Stealth Mode.png" id="4_1yiuv"]
+[ext_resource type="Texture2D" uid="uid://drv4a7pyw2pll" path="res://GameAssets/Assets/rapid replication.png" id="5_b4xcd"]
+[ext_resource type="Texture2D" uid="uid://8sylgqxyrart" path="res://GameAssets/Assets/Speed Boost.png" id="5_cjc16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvk6m"]
+bg_color = Color(0.0196078, 0.160784, 0.145098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04dn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3qenc"]
+
+[node name="SkillTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqnur")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nvk6m")
+
+[node name="InfectionRate" parent="." instance=ExtResource("1_s82vt")]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 500.0
+offset_right = 405.0
+offset_bottom = 540.0
+texture_normal = ExtResource("3_l6vs2")
+
+[node name="StealthMode" parent="InfectionRate" instance=ExtResource("1_s82vt")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.867
+anchor_top = -4.102
+anchor_right = -3.867
+anchor_bottom = -4.102
+offset_left = 221.392
+offset_top = 114.924
+offset_right = 261.392
+offset_bottom = 154.924
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+disabled = true
+texture_normal = ExtResource("4_1yiuv")
+
+[node name="RapidReplication" parent="InfectionRate/StealthMode" instance=ExtResource("1_s82vt")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -5.529
+anchor_top = -2.866
+anchor_right = -5.529
+anchor_bottom = -2.866
+offset_left = 292.341
+offset_top = 50.1624
+offset_right = 332.341
+offset_bottom = 90.1624
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+disabled = true
+texture_normal = ExtResource("5_b4xcd")
+
+[node name="Distraction" parent="InfectionRate/StealthMode" instance=ExtResource("1_s82vt")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -5.55
+anchor_top = -2.866
+anchor_right = -5.55
+anchor_bottom = -2.866
+offset_left = 192.634
+offset_top = 46.6512
+offset_right = 232.634
+offset_bottom = 86.6512
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+disabled = true
+
+[node name="SpeedBoost" parent="InfectionRate" instance=ExtResource("1_s82vt")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.825
+anchor_top = -4.112
+anchor_right = -3.825
+anchor_bottom = -4.112
+offset_left = 86.6072
+offset_top = 112.451
+offset_right = 126.607
+offset_bottom = 152.451
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1)
+disabled = true
+texture_normal = ExtResource("5_cjc16")
+
+[node name="LevelSelectorScreenButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -2.0
+offset_right = 82.0
+offset_bottom = 645.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_04dn2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3qenc")
+text = "<"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_right = 917.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0.847059, 0, 1)
+theme_override_fonts/font = ExtResource("3_kswra")
+theme_override_font_sizes/font_size = 100
+text = "SKILL TREE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 4.0
+offset_right = 1148.0
+offset_bottom = 650.0
+mouse_filter = 2
+
+[node name="Heading" type="Label" parent="DescriptionPanel"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 311.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0.819608, 0.00392157, 1)
+theme_override_font_sizes/font_size = 45
+text = "Skill Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillDescription" type="Label" parent="DescriptionPanel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 169.0
+offset_right = 313.0
+offset_bottom = 379.0
+theme_override_colors/font_color = Color(0, 0.784314, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "
+Skill Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LevelValues" type="Label" parent="DescriptionPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 389.0
+offset_right = 308.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0, 0.784314, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Skill Level Nums"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DNA_points_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 587.0
+offset_right = 270.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 25
+text = "DNA POINTS : "
+vertical_alignment = 1
+
+[connection signal="pressed" from="LevelSelectorScreenButton" to="." method="_on_level_selector_screen_button_pressed"]

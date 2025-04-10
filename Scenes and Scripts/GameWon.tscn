@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c35kst6cglb30"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/game_won.gd" id="1_3xxeb"]
+[ext_resource type="FontFile" uid="uid://dj7s5o43hyxuw" path="res://GameAssets/Fonts/Contagion-EaXDg.ttf" id="2_ytx6l"]
+[ext_resource type="FontFile" uid="uid://bj4fekklsalup" path="res://GameAssets/Fonts/Contagion-axl25.ttf" id="3_dqf0l"]
+[ext_resource type="PackedScene" uid="uid://3qhdqa715400" path="res://Scenes and Scripts/BG_Music.tscn" id="4_tndu1"]
+
+[node name="Level_4" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3xxeb")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.0196078, 0.160784, 0.145098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 71.0
+offset_right = 920.0
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0, 0.815686, 0, 1)
+theme_override_fonts/font = ExtResource("2_ytx6l")
+theme_override_font_sizes/font_size = 150
+text = "YOU WON!!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 165.0
+offset_right = 925.0
+offset_bottom = 418.0
+theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
+theme_override_fonts/font = ExtResource("2_ytx6l")
+theme_override_font_sizes/font_size = 35
+text = "All humans Eradicated"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 560.0
+offset_right = 246.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(0, 0.701961, 0, 1)
+theme_override_fonts/font = ExtResource("3_dqf0l")
+theme_override_font_sizes/font_size = 20
+text = "BACK TO MAIN MENU"
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_tndu1")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgw2s8bgjhsw4"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/human.gd" id="1_fxk2t"]
+[ext_resource type="Texture2D" uid="uid://dky7scocgvmpm" path="res://GameAssets/Assets/pixel people/person001.png" id="2_tvx0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0c8g"]
+size = Vector2(18, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ov4t"]
+radius = 90.625
+
+[node name="Human" type="CharacterBody2D" groups=["human"]]
+scale = Vector2(2.24, 2.24)
+collision_mask = 3
+script = ExtResource("1_fxk2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 4.76837e-07)
+scale = Vector2(1.68182, 1.68182)
+texture = ExtResource("2_tvx0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_c0c8g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_7ov4t")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

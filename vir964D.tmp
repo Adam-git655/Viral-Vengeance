@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://vd86hmjq42ou"]
+
+[ext_resource type="Script" path="res://Player_virus.gd" id="1_ap4wt"]
+[ext_resource type="Texture2D" uid="uid://bo0xsisdji3b3" path="res://VirusBlob.png" id="2_c3ii6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqy1l"]
+atlas = ExtResource("2_c3ii6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmwad"]
+atlas = ExtResource("2_c3ii6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l0e4"]
+atlas = ExtResource("2_c3ii6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fna7c"]
+atlas = ExtResource("2_c3ii6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c0hc"]
+atlas = ExtResource("2_c3ii6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cgxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqy1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmwad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l0e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fna7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c0hc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28jny"]
+radius = 21.2132
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcc0o"]
+radius = 93.7443
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4rldw"]
+radius = 27.8927
+
+[node name="Virus" type="CharacterBody2D" groups=["viruses"]]
+scale = Vector2(0.8, 0.8)
+collision_layer = 3
+script = ExtResource("1_ap4wt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.3125, 3.3125)
+sprite_frames = SubResource("SpriteFrames_8cgxl")
+frame_progress = 0.312675
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_28jny")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dcc0o")
+
+[node name="Human_death_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="VirusHurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VirusHurtbox"]
+shape = SubResource("CircleShape2D_4rldw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Human_death_timer" to="." method="_on_human_death_timer_timeout"]
+[connection signal="body_entered" from="VirusHurtbox" to="." method="_on_virus_hurtbox_body_entered"]

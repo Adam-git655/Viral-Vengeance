@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://d462tsi1tobx"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/level_selector_screen.gd" id="1_vfyna"]
+[ext_resource type="FontFile" uid="uid://dj7s5o43hyxuw" path="res://GameAssets/Fonts/Contagion-EaXDg.ttf" id="2_tovl4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gntpl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qiiwg"]
+
+[node name="LevelSelectorScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vfyna")
+directory_path = "res://Levels"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(0.0196078, 0.160784, 0.145098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_right = 963.0
+offset_bottom = 646.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.847059, 0, 1)
+theme_override_fonts/font = ExtResource("2_tovl4")
+theme_override_font_sizes/font_size = 100
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 25
+columns = 3
+
+[node name="SkillTreeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = -1.0
+offset_right = 1150.0
+offset_bottom = 646.0
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gntpl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qiiwg")
+text = ">"
+
+[connection signal="pressed" from="SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]

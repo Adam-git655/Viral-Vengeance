@@ -1,0 +1,171 @@
+[gd_scene load_steps=13 format=3 uid="uid://7d3wnbtsu7op"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Main_Menu.gd" id="1_ks88m"]
+[ext_resource type="FontFile" uid="uid://dj7s5o43hyxuw" path="res://GameAssets/Fonts/Contagion-EaXDg.ttf" id="2_1fj7n"]
+[ext_resource type="FontFile" uid="uid://bj4fekklsalup" path="res://GameAssets/Fonts/Contagion-axl25.ttf" id="3_4ogct"]
+[ext_resource type="Texture2D" uid="uid://bsgxqrdqhlvrx" path="res://GameAssets/Assets/VirusBlob.png" id="4_qeou4"]
+[ext_resource type="Texture2D" uid="uid://dky7scocgvmpm" path="res://GameAssets/Assets/pixel people/person001.png" id="5_13abh"]
+[ext_resource type="Texture2D" uid="uid://ddgvbftq81sm8" path="res://GameAssets/Assets/scientist.png" id="6_sbps4"]
+[ext_resource type="Texture2D" uid="uid://dleslsyo7qxoo" path="res://GameAssets/Assets/vial_bullet.png" id="7_p236t"]
+[ext_resource type="Texture2D" uid="uid://dlt1cpmefiihd" path="res://GameAssets/Assets/pixel people/person001_infected.png" id="8_1472s"]
+[ext_resource type="Texture2D" uid="uid://dq4v25yoa0f7a" path="res://GameAssets/Assets/pixel people/person003_infected.png" id="9_4hu5q"]
+[ext_resource type="Texture2D" uid="uid://bi8nr37anjjug" path="res://GameAssets/Assets/pixel people/person004_infected.png" id="10_2dx0c"]
+[ext_resource type="Script" path="res://Scenes and Scripts/PlayButton.gd" id="11_33tqc"]
+[ext_resource type="Script" path="res://Scenes and Scripts/QuitButton.gd" id="12_2bcy7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ks88m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.0196078, 0.160784, 0.145098, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0, 0.847059, 0, 1)
+theme_override_fonts/font = ExtResource("2_1fj7n")
+theme_override_font_sizes/font_size = 130
+text = "Viral vengeance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(288.782, 409.663)
+rotation = -0.283965
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(358.782, 468.663)
+rotation = -0.62957
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(279.782, 502.663)
+rotation = -0.62957
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(439.782, 491.663)
+rotation = 1.50433
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(263.782, 320.663)
+rotation = 2.97462
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(517.782, 446.663)
+rotation = 0.886323
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(366.782, 555.663)
+rotation = 2.08298
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(206.782, 449.663)
+rotation = -0.459189
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(231.782, 578.663)
+rotation = -0.614297
+scale = Vector2(6.09375, 6.09375)
+texture = ExtResource("4_qeou4")
+hframes = 5
+
+[node name="Person001" type="Sprite2D" parent="."]
+position = Vector2(408.782, 347.663)
+scale = Vector2(7.04545, 7.04545)
+texture = ExtResource("5_13abh")
+
+[node name="Scientist" type="Sprite2D" parent="."]
+position = Vector2(1039.78, 350.663)
+rotation = -0.113227
+scale = Vector2(5.4375, 5.4375)
+texture = ExtResource("6_sbps4")
+flip_h = true
+hframes = 4
+
+[node name="VialBullet" type="Sprite2D" parent="."]
+position = Vector2(869.782, 397.663)
+rotation = -0.159301
+scale = Vector2(3.3125, 3.3125)
+texture = ExtResource("7_p236t")
+
+[node name="Person001Infected" type="Sprite2D" parent="."]
+position = Vector2(100.782, 261.663)
+rotation = 0.270754
+scale = Vector2(4.77273, 4.77273)
+texture = ExtResource("8_1472s")
+
+[node name="Person003Infected" type="Sprite2D" parent="."]
+position = Vector2(573.782, 528.663)
+rotation = -0.219081
+scale = Vector2(4.78571, 4.78571)
+texture = ExtResource("9_4hu5q")
+
+[node name="Person004Infected" type="Sprite2D" parent="."]
+position = Vector2(732.856, 244.582)
+rotation = 0.270684
+scale = Vector2(5.28658, 5.28658)
+texture = ExtResource("10_2dx0c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 577.0
+offset_right = 105.0
+offset_bottom = 640.0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.952941, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ogct")
+text = "PLAY
+"
+script = ExtResource("11_33tqc")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0235294, 0.913725, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("3_4ogct")
+text = "QUIT"
+script = ExtResource("12_2bcy7")
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

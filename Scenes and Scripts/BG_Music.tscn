@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3qhdqa715400"]
+
+[ext_resource type="AudioStream" uid="uid://coxiavj2m5u6i" path="res://GameAssets/Music/walk-alone-dark-cinematic-music-horror-music-153445.mp3" id="1_tjqnu"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer"]
+stream = ExtResource("1_tjqnu")
+autoplay = true

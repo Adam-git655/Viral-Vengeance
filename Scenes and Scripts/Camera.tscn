@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cj6rvndq16iir"]
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+offset_left = -567.0
+offset_top = 215.0
+offset_right = -174.0
+offset_bottom = 323.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "ALL HUMANS NOT INFECTED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfectionLabel" type="Label" parent="."]
+visible = false
+z_index = 5
+offset_left = 218.0
+offset_top = 233.0
+offset_right = 574.0
+offset_bottom = 321.0
+theme_override_colors/font_color = Color(0, 0.929412, 0.0196078, 1)
+theme_override_font_sizes/font_size = 35
+text = "INFECTING...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StealthModeAvailableLabel" type="Label" parent="."]
+visible = false
+z_index = 5
+offset_left = 321.0
+offset_top = -321.0
+offset_right = 575.0
+offset_bottom = -256.0
+theme_override_colors/font_color = Color(0, 0.929412, 0.0196078, 1)
+theme_override_font_sizes/font_size = 20
+text = "Stealth Mode Available!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc0wc657ec1qd"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/MegaScientist.gd" id="1_so2gd"]
+[ext_resource type="Texture2D" uid="uid://ddgvbftq81sm8" path="res://GameAssets/Assets/scientist.png" id="2_c0y6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh5ho"]
+atlas = ExtResource("2_c0y6q")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ssi3"]
+atlas = ExtResource("2_c0y6q")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np8jo"]
+atlas = ExtResource("2_c0y6q")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbtbv"]
+atlas = ExtResource("2_c0y6q")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sm3y2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh5ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ssi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np8jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbtbv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6vyb"]
+size = Vector2(22.611, 55.8626)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g06et"]
+radius = 193.524
+
+[node name="MegaScientist" type="CharacterBody2D" groups=["scientist"]]
+scale = Vector2(3.00738, 3.00738)
+script = ExtResource("1_so2gd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.74902, 0.211765, 0.168627, 1)
+position = Vector2(-4.76837e-07, 0.332515)
+scale = Vector2(1.25855, 1.25855)
+sprite_frames = SubResource("SpriteFrames_sm3y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.665031, 1.99509)
+shape = SubResource("RectangleShape2D_d6vyb")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_g06et")
+
+[node name="vial_shoot_cooldown" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="vial_shoot_cooldown" to="." method="_on_vial_shoot_cooldown_timeout"]
