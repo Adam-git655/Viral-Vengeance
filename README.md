@@ -8,4 +8,7 @@ You have to infect all the humans in sight while keeping vary of the scientists 
 
 You also get DNA points after each level, which you can use in the main menu to get new mutations for your virus horde, unlocking cool abilities!
 
+Play now on itch.io:-
+https://randomguy123hehe.itch.io/viral-vengeance
+
 Made in Godot v4.2.1 stable
